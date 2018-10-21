@@ -25,25 +25,27 @@ $(document).ready(function(event){
         return '<p style="color:red">Very weak.</p>';
       });
     } else{
-        $("#passwordError").html(function (){
-          return '<p style="color:green">Good.</p>';
-        });
+      $("#passwordError").html(function (){
+        return '<p style="color:green">Good.</p>';
+      });
     }
   })
 
-$("#submitRegister").on("click", function(event){
-  var registerItems = $(registerForm).serializeArray();
-  var newUserString = "";
-  var newUserObject = {};
+  $("#registerForm").on("submit", function(event){
+    var registerItems = $(this).serializeArray();
+    var newUserString = "";
+    var newUserObject = {};
+    console.log("registerItems: ", registerItems);
+    console.log("registerItems[2].name: ", registerItems[2].name);
+    for(var i = 0; i<registerItems.length; i=i+1){
+      newUserObject[registerItems[i].name] = registerItems[i].value;
+    }
+    newUserString = JSON.stringify(newUserObject);
+    localStorage.setItem("user." + newUserObject.username, newUserString);
+    console.log("newUserString: " + newUserString);
+    // localStorage.setItem("username."+registerItems.username,newUserString);
 
-  for(var i; i<=registerItems.length; i=i+1){
-    newUserObject.append(registerItems[i].name,registerItems[i].value);
-  }
-  newUserString = JSON.stringify(newUserObject);
-
-  console.log(newUserString);
-  // localStorage.setItem("username."+registerItems.username,newUserString);
-})
+  })
 
 
 })
