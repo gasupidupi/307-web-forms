@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>basic</title>
+  <meta charset="utf-8"/>
+  <script src="../../../jquery-3.3.1.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../../../bootstrap-4.0.0-dist/css/bootstrap.css">
+  <script src="../../../bootstrap-4.0.0-dist/js/bootstrap.js"></script>
+  <script src="../../../bootstrap-4.0.0-dist/js/bootstrap.bundle.js"></script>
+  <script src="../js/newArticle.js"></script>
+  <script src="../js/general.js"></script>
+</head>
+<body>
+  <section>
+    <div class="top">
+      <img src="../img/logo.png" class="indexJump">
+      <span id="loginDropdownContainer"></span>
+    </div>
+
+  </section>
+  <section>
+
+    <div class="content">
+      <div class="articleNew">
+        <form id="articleNewForm" method="post">
+          <fieldset>
+            <legend>New Article</legend>
+            <div class="row blockDistance">
+              <label for="title" class="col-4">Title</label>
+              <input class="form-control col-4" type="text" name="title" id="title" required>
+            </div>
+            <div class="row blockDistance">
+              <label for="noteText" class="col-4">Content</label>
+              <textarea name="noteText" class="form-control newArticleNoteText col-4"></textarea>
+            </div>
+            <button class="bt btn-dark" type="submit">Submit</button>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>basic</title>
+  <meta charset="utf-8"/>
+  <script src="../../../jquery-3.3.1.js"></script>
+
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../../../bootstrap-4.0.0-dist/css/bootstrap.css">
+  <script src="../../../bootstrap-4.0.0-dist/js/bootstrap.js"></script>
+  <script src="../../../bootstrap-4.0.0-dist/js/bootstrap.bundle.js"></script>
+  <script src="../js/general.js"></script>
+  <script src="../js/validate.js"></script>
+  <script src="../js/register.js"></script>
+</head>
+<body>
+  <section>
+    <div class="top">
+      <img src="../img/logo.png" class="indexJump">
+      <span id="loginDropdownContainer"></span>
+    </div>
+
+  </section>
+  <section>
+
+    <div class="content">
+      <form name="registerForm" action="#" method="post" onSubmit="return check()" novalidate>
+        <fieldset>
+          <legend>Personal Data</legend>
+          <div class="row blockDistance">
+            <label for="email" class="col-3">E-Mail</label>
+            <div class="col-3">
+              <input type="email" name="email" id="email" class="form-control" placeholder="E-Mail" required>
+              <div id="emailError">
+              </div>
+
+            </div>
+            <label for="tel" class="col-3">Telephone</label>
+            <div class="col-3">
+              <input type="text" name="tel" id="tel" class="form-control" placeholder="Telephone">
+              <div id="telError">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <label for="username" class="col-3">Username</label>
+            <div class="col-3">
+              <input type="text" name="username" id="username" class="form-control" placeholder="Username" required>
+              <div id="usernameError">
+              </div>
+            </div>
+
+            <label for="password" class="col-3">Password</label>
+            <div class="col-3">
+              <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
+              <div id="passwordError">
+              </div>
+              <div class="row">
+
+                <div id="passwordComplexity col-3">
+                </div>
+              </div>
+              <button class="btn btn-dark submit" id="submitRegister">Submit</button>
+            </div>
+
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

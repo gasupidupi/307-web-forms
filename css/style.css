@@ -1,0 +1,135 @@
+body {
+  font: sans-serif !important;
+}
+
+.top > select {
+  position: relative;
+  float: right;
+  padding-top: 0
+}
+.top {
+  background-color: black;
+  background-size: 100% 100%;
+  padding: 3% !important;
+}
+.content {
+  padding-top: 2.5% !important;
+  margin-top: 2.5% !important;
+  margin-left: 8% !important;
+  margin-right: 8% !important;
+  background-color: #f1f1f1 !important;
+  padding-right: 2.5% !important;
+  padding-left: 2.5% !important;
+  position: absolute;
+  width: 84%;
+  overflow-x: visible !important;
+  padding-bottom: 2.5% !important;
+}
+
+
+.dropdown {
+  position: relative;
+  float: right !important;
+  display: inline !important;
+  background-image: image("../img/dropdown.png");
+}
+
+/* .dropdown > a, a:not([href]){
+  color: rgb(255,255,255) !important;
+}
+.dropdown > a:hover, a:not([href]):hover{
+  color: rgb(255,255,255) !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+} */
+
+#loginBox > ul > li {
+  padding-left: 5px;
+
+}
+#loginBox > ul > li > a {
+  color: rgb(200,200,200);
+}
+
+#loginBox > ul > li:hover {
+  background-color: rgb(50,50,50) !important;
+  cursor: pointer;
+  text-decoration: none !important;
+}
+
+.white {
+  color: rgb(200,200,200) !important;
+}
+
+.article {
+  position: relative !important;
+  float: left !important;
+  width: 65% !important;
+  margin-right: 5%;
+}
+.notes {
+  position: relative !important;
+  float: left !important;
+  width: 25% !important;
+  /* doesen't work */
+  height: 10% !important;
+}
+
+.notes input, .detailNoteText {
+  width: 90%;
+  height: 250px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+/* .newArticleNoteText {
+  display: block;
+  width: 100% !important;
+} */
+
+.top > img {
+  width: 250px;
+}
+ul {
+  list-style: none !important;
+  padding-left: 0px !important;
+
+}
+#articleList > li {
+    border-bottom: 1px solid;
+    padding: 5px;
+}
+#articleList > li > a {
+  position: relative;
+}
+
+#loginBox{
+  color: rgb(200,200,200) !important;
+  margin-bottom: -3%;
+}
+
+.noteCss {
+  background-color: rgba(255, 0, 0, 0.5);
+}
+
+button {
+
+}
+
+h1 {
+  display: inline;
+
+}
+
+.addButton {
+  position: relative;
+  float: right;
+}
+
+.blockDistance {
+  margin-bottom: 25px !important;
+}
+
+.invalid-feedback {
+  display: inline !important;
+}
