@@ -44,7 +44,11 @@ $(document).ready(function(event){
     localStorage.setItem("user." + newUserObject.username, newUserString);
     console.log("newUserString: " + newUserString);
     // localStorage.setItem("username."+registerItems.username,newUserString);
-
+    if(documentName =="index"){
+      window.location = "../index.html";
+    }
+    window.location = "detail.html";
+  }
   })
 
 
