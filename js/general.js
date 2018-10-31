@@ -1,8 +1,15 @@
 
 $(document).ready(function(event){
-
-
-
+   // test session storage
+   try {
+   sessionStorage.setItem("test", "item");
+   var test = sessionStorage.getItem("test");
+   if(!test) {
+       alert("Third party cookies need to be activated.");
+   }
+  } catch(e) {
+      alert("Third party cookies need to be activated.");
+  }
 
   $("#loginDropdownContainer").html(function (){
     return '<span id="loginDropdown" class="dropdown white btn"><img src="../img/dropdown.png"></span>'
@@ -11,12 +18,12 @@ $(document).ready(function(event){
   $("#loginDropdownContainer").on("click", function(event){
     if(sessionStorage.getItem("currentuser")==null){
       $("#loginDropdownContainer").html(function (){
-        return '<div id="loginBox"><ul><li class="indexJump">index</li><li class="loginJump">login</li><li class="registerJump">register</li>';
+        return '<div id="loginBox"><ul><li class="indexJump">index</li><li class="loginJump">login</li><li class="registerJump">register</li><li class="ueberUnsJump">&uuml;ber</li></ul></div>';
       });
     }
     else{
       $("#loginDropdownContainer").html(function (){
-        return '<div id="loginBox"><ul><li class="indexJump">index</li><li class="registerJump">register</li><li class="logOut">logout</li>';
+        return '<div id="loginBox"><ul><li class="indexJump">index</li><li class="registerJump">register</li><li class="logOut">logout</li><li class="ueberUnsJump">&uuml;ber</li></ul></div>';
       });
     }
     $(".loginJump").on("click", function(event){
@@ -32,6 +39,12 @@ $(document).ready(function(event){
       window.location = "register.html";
       return false;
     })
+	
+	 $(".ueberUnsJump").on("click", function(event){
+      window.location = "ueberUns.html";
+      return false;
+    })
+	
     $(".logOut").on("click", function(event){
       if(sessionStorage.currentuser){
       sessionStorage.removeItem('currentuser');

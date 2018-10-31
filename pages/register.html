@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>basic</title>
+  <title>register</title>
   <meta charset="utf-8"/>
-  <script src="../../../jquery-3.3.1.js"></script>
+  <script src="../lib/jquery-3.3.1.js"></script>
 
 
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/normalize.css">
-  <link rel="stylesheet" href="../../../bootstrap-4.0.0-dist/css/bootstrap.css">
-  <script src="../../../bootstrap-4.0.0-dist/js/bootstrap.js"></script>
-  <script src="../../../bootstrap-4.0.0-dist/js/bootstrap.bundle.js"></script>
+  <link rel="stylesheet" href="../lib/bootstrap-4.0.0-dist/css/bootstrap.css">
+  <script src="../lib/bootstrap-4.0.0-dist/js/bootstrap.js"></script>
+  <script src="../lib/bootstrap-4.0.0-dist/js/bootstrap.bundle.js"></script>
   <script src="../js/general.js"></script>
   <script src="../js/validate.js"></script>
   <script src="../js/register.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <p>this should not be here</p>
   <section>
     <div class="top">
       <img src="../img/logo.png" class="indexJump">
@@ -27,9 +27,9 @@
   <section>
 
     <div class="content">
-      <form name="registerForm" action="#" method="post" onSubmit="return check()" novalidate>
+      <form id="registerForm" name="registerForm" method="post" novalidate>
         <fieldset>
-          <legend>Personal Data</legend>
+          <legend>Personal Data</legend><span id="registerResponse"></span>
           <div class="row blockDistance">
             <label for="email" class="col-3">E-Mail</label>
             <div class="col-3">
@@ -59,17 +59,28 @@
               <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
               <div id="passwordError">
               </div>
+
               <div class="row">
 
                 <div id="passwordComplexity col-3">
                 </div>
               </div>
-              <button class="btn btn-dark submit" id="submitRegister">Submit</button>
-            </div>
 
+			<div class="row">
+			<div class="checkbox">
+    <label class="checkbox-inline no_indent">
+        <input name="newsletter" type="checkbox">
+        Subscribe to newsletter.
+    </label>
+	</div>
+			</div>
+			<button type="submit" class="col-5 btn btn-dark submit" id="submitRegister">Submit</button>
+			</div>
+            </div>
+</div>
           </fieldset>
         </form>
-      </div>
+
     </div>
   </section>
 </body>

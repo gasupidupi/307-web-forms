@@ -1,6 +1,5 @@
 $(document).ready(function(event){
 
-  sessionStorage.setItem("currentdocument", "index");
   var articleNames = JSON.parse(localStorage.getItem("articleNames")) || [];
 
   console.log(articleNames);
@@ -28,12 +27,12 @@ $(document).ready(function(event){
   $("#loginDropdownContainer").on("click", function(event){
     if(sessionStorage.getItem("currentuser")==null){
       $("#loginDropdownContainer").html(function (){
-        return '<div id="loginBox"><ul><li class="indexJump">index</li><li class="loginJump">login</li><li class="registerJump">register</li>';
+        return '<div id="loginBox"><ul><li class="indexJump">index</li><li class="loginJump">login</li><li class="registerJump">register</li><li class="ueberUnsJump">&uuml;ber</li></ul></div>';
       });
     }
     else{
       $("#loginDropdownContainer").html(function (){
-        return '<div id="loginBox"><ul><li class="indexJump">index</li><li class="registerJump">register</li><li class="logOut">logout</li>';
+        return '<div id="loginBox"><ul><li class="indexJump">index</li><li class="registerJump">register</li><li class="logOut">logout</li><li class="ueberUnsJump">&uuml;ber</li></ul></div>';
       });
     }
     $(".loginJump").on("click", function(event){
@@ -42,6 +41,11 @@ $(document).ready(function(event){
     })
     $(".indexJump").on("click", function(event){
       window.location.reload();
+      return false;
+    })
+	
+	$(".ueberUnsJump").on("click", function(event){
+      window.location = "pages/ueberUns.html";
       return false;
     })
 
@@ -57,9 +61,7 @@ $(document).ready(function(event){
       window.location.reload();
       return false;
     }
-    else{
-      window.alert("If you could act while you don't exist, perhaps religion wouldn't be too far off after all.");
-    }
+
     })
 
     return false;

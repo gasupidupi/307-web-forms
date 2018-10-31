@@ -1,37 +1,37 @@
 $(document).ready(function(event){
+  if(sessionStorage.getItem("register")=="success"){
+    console.log("success");
+    $("#registerResponse").html(function (){
+      return '<div class="alert alert-success"><img src="../img/Checkmark_green.svg" height="24" /> You successfully registered</div>';
+    });
+    sessionStorage.setItem("register", "none");
+  }
+
+    console.log("registerform loaded");
+    console.log(sessionStorage.getItem("currentdocument"));
 
   $("#passwordError").html(function (){
     return '<p>Password complexity</p>';
   });
 
   $("#password").keyup(function(event){
-    var passwordInput = $(this).serializeArray();
-    var registerItems = $(registerForm).serializeArray();
-    console.log(passwordInput);
-    console.log(registerItems);
-    console.log(passwordInput[0].value);
 
-    var passwordString = passwordInput[0].value;
+	var password = document.registerForm.password.value;
+	var checkPassword = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+	if (!checkPassword.test(password)){
+      document.getElementById('passwordError').innerHTML = '<p style="color:red">Password needs to contain at least eight characters, a number, one uppercase letter and one lowercase letter.</p>';
+      document.registerForm.password.focus();
 
-    console.log("passwordString: " + passwordString);
-    console.log("passwordString.length: " + passwordString.length);
-    if(passwordString.length < 5){
-      console.log(passwordInput[0].length);
-      $("#passwordError").html(function (){
-        return '<p style="color:red">Too short.</p>';
-      });
-    } else if(passwordInput[0].value==registerItems[2].value||passwordInput[0].value=="123456"||passwordInput[0].value=="Password"||passwordInput[0].value=="12345678"||passwordInput[0].value=="qwerty"||passwordInput[0].value=="12345"||passwordInput[0].value=="123456789"){
-      $("#passwordError").html(function (){
-        return '<p style="color:red">Very weak.</p>';
-      });
-    } else{
-      $("#passwordError").html(function (){
-        return '<p style="color:green">Good.</p>';
-      });
+    }else {
+      document.getElementById('passwordError').innerHTML = '<p style="color:green">Good.</p>';
     }
   })
 
   $("#registerForm").on("submit", function(event){
+    if(!check()) {
+       return false;
+    }
+    var userNames = JSON.parse(localStorage.getItem("userNames")) || [];
     var registerItems = $(this).serializeArray();
     var newUserString = "";
     var newUserObject = {};
@@ -42,14 +42,12 @@ $(document).ready(function(event){
     }
     newUserString = JSON.stringify(newUserObject);
     localStorage.setItem("user." + newUserObject.username, newUserString);
-    console.log("newUserString: " + newUserString);
-    // localStorage.setItem("username."+registerItems.username,newUserString);
-    if(documentName =="index"){
-      window.location = "../index.html";
-    }
-    window.location = "detail.html";
-  }
+    userNames.push(newUserObject.username);
+    sessionStorage.setItem("register", "success");
+    localStorage.setItem("userNames", JSON.stringify(userNames));
+    return true;
   })
+
 
 
 })
